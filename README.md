@@ -54,10 +54,10 @@ Make sure Postgres is running and then run the following commands to install the
 ```bash
 > git clone git@github.com:fabgrel10/blog-app.git
 > cd blog-app
-> bundle install
-> rails db:create
-> rails db:migrate
-> rails s
+> ./bin/bundle install
+> ./bin/rails db:create
+> ./bin/rails db:migrate
+> ./bin/rails server
 ```
 
 Open the browser and go to `http://localhost:3000`.
@@ -65,7 +65,7 @@ Open the browser and go to `http://localhost:3000`.
 ## Run tests
 
 ```bash
-> rails test
+> ./bin/rails test
 ```
 
 ## Author
