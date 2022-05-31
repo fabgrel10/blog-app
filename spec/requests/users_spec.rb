@@ -25,7 +25,8 @@ RSpec.describe 'Users', type: :request do
   describe 'GET #show' do
     before(:each) { get '/users/:id' }
 
-    it 'is a success' do
+    it 'returns a 200 status code or ok response' do
+      expect(response).to have_http_status(200)
       expect(response).to have_http_status(:ok)
     end
 
