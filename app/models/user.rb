@@ -6,6 +6,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   def recent_posts
-    posts.last(3)
+    posts.limit(3).order(created_at: :desc)
   end
 end
