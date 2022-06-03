@@ -3,9 +3,11 @@
     <%= user_avatar(user) %>
   </div>
   <div class="w-full p-3 ml-5 bg-white border border-sky-500">
-    <h2 class="text-2xl font-bold"><%= user.name %></h2>
-    <p class="text-right text-gray-700">
-      Number of posts: <%= user.posts.count %>
-    </p>
+    <%= link_to user_path(user.id) do %>
+      <h2 class="text-2xl font-bold"><%= user.name %></h2>
+      <p class="text-right text-gray-700">
+        Number of posts: <%= user.posts.count %>
+      </p>
+    <% end %>
   </div>
 </div>

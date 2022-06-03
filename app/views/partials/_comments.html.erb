@@ -1,4 +1,4 @@
 <p class="mt-2 text-gray-700">
   <span class="font-bold text-gray-700"><%= comment.author.name %></span>:
-  <%= comment.text %>
+  <%= comment.text.truncate_words(11) %>
 </p>

@@ -1,0 +1,9 @@
+<div class="p-5 bg-white border shadow-lg border-sky-500">
+  <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
+    <h2 class="mb-2 text-lg font-bold text-gray-800"><%= post.title %></h2>
+    <p class="mt-2 text-gray-700"><%= post.text.truncate_words(21) %></p>
+  <% end %>
+  <p class="mt-2 text-xs text-right text-gray-700">
+    Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %>
+  </p>
+</div>
