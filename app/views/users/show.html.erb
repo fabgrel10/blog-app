@@ -5,9 +5,14 @@
     <%= user_bio(@user)%>
   </p>
 </div>
-<%= render partial: 'partials/post', collection:  @user.recent_posts,  as: :post  %>
-<div class="flex justify-center">
-  <button class="p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500">
-    <%= link_to "See all posts", user_posts_path(@user) %>
-  </button>
-</div>
+<% if @user.recent_posts.length > 0 %>
+  <% @user.recent_posts.each do |post| %>
+    <%= render partial: 'partials/post', locals: { post: post }  %>
+    <div class="mb-3"></div>
+  <% end %>
+  <div class="flex justify-center">
+    <button class="p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500 hover:bg-sky-500 hover:text-white">
+      <%= link_to "See all posts", user_posts_path(@user) %>
+    </button>
+  </div>
+<% end %>
