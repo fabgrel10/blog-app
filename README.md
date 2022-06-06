@@ -28,15 +28,11 @@ To get started with the app, clone the repo, install ruby if needed, and then in
   - Install ruby: `asdf install ruby 3.1.2`
   - Set as global version: `asdf global ruby 3.1.2`
 - MacOS: [via Brew](https://blog.rubatic.com/2021/01/install-any-version-of-ruby-on-mac-osx-with-homebrew)
-- Windows (via Scoop):
-  - [Install Scoop](https://github.com/ScoopInstaller/Scoop/wiki/Quick-Start)
-  - `scoop install ruby`
+- Windows: [RubyInstaller](https://rubyinstaller.org/)
 
 #### Ruby on Rails
 
-- Linux: `gem install rails 7.0.3`
-- MacOS: `brew install rails`,
-- Windows: `scoop install rails`.
+- In your terminal run `gem install rails 7.0.3`
 
 ### Postgres
 
@@ -51,6 +47,8 @@ To get started with the app, clone the repo, install ruby if needed, and then in
 
 Make sure Postgres is running and then run the following commands to install the app:
 
+- From Linux or MacOS:
+
 ```bash
 > git clone git@github.com:fabgrel10/blog-app.git
 > cd blog-app
@@ -58,7 +56,15 @@ Make sure Postgres is running and then run the following commands to install the
 > ./bin/bundle install
 > ./bin/rails db:create
 > ./bin/rails db:migrate
-> ./bin/rails server
+> ./bin/dev
+```
+
+- From Windows follow the same steps, except the last one (./bin/dev), run the following commands
+in separate windows:
+
+```bash
+> rails tailwindcss:watch
+> rails server
 ```
 
 Open the browser and go to `http://localhost:3000`.
