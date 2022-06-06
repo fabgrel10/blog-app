@@ -28,9 +28,7 @@ To get started with the app, clone the repo, install ruby if needed, and then in
   - Install ruby: `asdf install ruby 3.1.2`
   - Set as global version: `asdf global ruby 3.1.2`
 - MacOS: [via Brew](https://blog.rubatic.com/2021/01/install-any-version-of-ruby-on-mac-osx-with-homebrew)
-- Windows:
-  - [RubyInstaller](https://rubyinstaller.org/)
-  - `scoop install ruby`
+- Windows: [RubyInstaller](https://rubyinstaller.org/)
 
 #### Ruby on Rails
 
