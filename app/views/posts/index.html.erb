@@ -1,2 +1,15 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= render 'partials/user', user: @user %>
+<% if @user.recent_posts.length > 0 %>
+  <% @user.recent_posts.each do |post| %>
+    <%= render partial: 'partials/posts', locals: { post: post }  %>
+    <% if post.comments_counter > 0 %>
+      <div class="p-5 mt-0 mb-3 bg-white border border-t-0 shadow-lg border-sky-500">
+        <% post.recent_comments.each do |comment| %>
+          <%= render partial: 'partials/comments', locals: { comment: comment }  %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="mb-3"></div>
+    <% end %>
+  <% end %>
+<% end %>

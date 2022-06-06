@@ -1,2 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render 'partials/user', user: @user %>
+<div class="p-3 mb-3 bg-white border border-sky-500">
+  <h2 class="mb-2 text-2xl font-bold">Bio</h2>
+  <p class="text-justify text-gray-700">
+    <%= user_bio(@user)%>
+  </p>
+</div>
+<% if @user.recent_posts.length > 0 %>
+  <% @user.recent_posts.each do |post| %>
+    <%= render partial: 'partials/posts', locals: { post: post }  %>
+    <div class="mb-3"></div>
+  <% end %>
+  <div class="flex justify-center">
+    <button class="p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500 hover:bg-sky-500 hover:text-white">
+      <%= link_to "See all posts", user_posts_path(@user) %>
+    </button>
+  </div>
+<% end %>
