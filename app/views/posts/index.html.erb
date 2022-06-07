@@ -1,5 +1,10 @@
 <%= render 'partials/user', user: @user %>
 <% if @user.recent_posts.length > 0 %>
+  <div class="flex justify-center mb-3">
+    <button class="p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500 hover:bg-sky-500 hover:text-white">
+      <%= link_to "Create a New Post" , new_user_post_path %>
+    </button>
+  </div>
   <% @user.recent_posts.each do |post| %>
     <%= render partial: 'partials/posts', locals: { post: post }  %>
     <% if post.comments_counter > 0 %>
