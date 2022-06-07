@@ -5,7 +5,7 @@
       <%= link_to "Create a New Post" , new_user_post_path %>
     </button>
   </div>
-  <% @user.recent_posts.each do |post| %>
+  <% @user_posts.each do |post| %>
     <%= render partial: 'partials/posts', locals: { post: post }  %>
     <% if post.comments_counter > 0 %>
       <div class="p-5 mt-0 mb-3 bg-white border border-t-0 shadow-lg border-sky-500">
