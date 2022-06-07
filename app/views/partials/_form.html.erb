@@ -1,16 +1,13 @@
-<form class="p-5 bg-white border shadow-lg border-sky-500">
+ <%= form_with model: @post, url: user_posts_url, class: 'p-5 bg-white border shadow-lg border-sky-500' do |f| %>
   <div class="mb-6">
-    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 ">Title</label>
-    <input type="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="My New Post" required>
+    <%= f.label :title, class: 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300' %>
+    <%= f.text_field :title, placeholder: 'Title', class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
   </div>
   <div class="mb-6">
-    <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Content</label>
-    <textarea id="text"  class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg form-control bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" rows="5" placeholder="Once upon a time ..." required>
-    </textarea>
+    <%= f.label :content, class: 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300' %>
+    <%= f.text_area :text, rows: 5, placeholder: 'Once upon a time ... ', class: 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg form-control bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
   </div>
   <div class="flex justify-center">
-    <button class="p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500 hover:bg-sky-500 hover:text-white">
-      <%= link_to "Create Post", "#" %>
-    </button>
+    <%= f.submit 'Create Post', class: 'p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500 hover:bg-sky-500 hover:text-white' %>
   </div>
-</form>
+<% end %>
