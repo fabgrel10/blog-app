@@ -1,14 +1,11 @@
 class CommentsController < ApplicationController
   def create
-    @user = current_user
-    @post = Post.find(params[:post_id])
-    @comment = Comment.create(post: @post, author: @user, text: params[:text])
+    @comment = current_user.comments.new(post_params)
+    @comment.post_id = params[:post_id]
 
     if @comment.valid?
       @comment.save
-      redirect_to user_post_path(id: @post.id, user_id: @user.id)
-    else
-      redirect_to new_user_post_comment_path(@user.id, @post.id)
+      redirect_to user_post_path(@comment.author_id, @comment.post_id)
     end
   end
 
