@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
 
     if @comment.save
-      flash[:success] = 'Comment created!'
+      flash.now[:success] = 'Comment created!'
     else
-      flash[:error] = 'Comment could not be created!'
+      flash.now[:error] = 'Comment could not be created!'
     end
     redirect_to user_post_path(@comment.author_id, @comment.post_id)
   end
