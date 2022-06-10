@@ -4,9 +4,9 @@ class LikesController < ApplicationController
     like = Like.new(author_id: current_user.id, post_id: post.id)
 
     if like.save
-      flash.now[:success] = 'Liked!'
+      flash[:success] = 'Liked!'
     else
-      flash.now[:error] = 'Could not like!'
+      flash[:error] = 'Could not like!'
     end
     redirect_to "/users/#{post.author.id}/posts/#{post.id}"
   end
