@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     if like.save
       flash[:success] = 'Liked!'
     else
-      flash[:error] = 'Something went wrong!'
+      flash[:error] = 'Could not like!'
     end
     redirect_to "/users/#{post.author.id}/posts/#{post.id}"
   end
