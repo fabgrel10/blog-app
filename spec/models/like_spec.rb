@@ -5,8 +5,8 @@ RSpec.describe Like, type: :model do
     @author1 = User.create(name: 'Test User', photo: 'https://example.com/test.jpg', bio: 'I am a test user ',
                            posts_counter: 0)
 
-    @author2 = User.create(name: 'Another Test User', photo: 'https://example.com/test2.jpg', bio: 'I am another test user ',
-                           posts_counter: 0)
+    @author2 = User.create(name: 'Another Test User', photo: 'https://example.com/test2.jpg',
+                           bio: 'I am another test user', posts_counter: 0)
 
     @post_author1 = Post.create(
       author: @author1,
