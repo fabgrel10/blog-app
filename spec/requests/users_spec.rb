@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   before :all do
-    @user = User.create(name: 'Test User', photo: 'https://example.com/test.jpg', bio: 'I am a test user ',
-                        posts_counter: 0)
+    @author = User.create(name: 'Test User', photo: 'https://example.com/test.jpg', bio: 'I am a test user ',
+                          posts_counter: 0)
   end
 
   describe '.index' do
@@ -28,7 +28,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe '.show' do
-    before { get "/users/#{@user.id}" }
+    before { get "/users/#{@author.id}" }
 
     it 'returns a 200 status code or ok response' do
       expect(response).to have_http_status(200)
