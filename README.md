@@ -8,6 +8,10 @@
 
 ![screenshot](./app/assets/images//app_screenshot.png)
 
+## Live Demo
+
+<https://blog-app-microverse.herokuapp.com/>
+
 ## Built with
 
 - `Ruby 3.1.2`
