@@ -6,7 +6,11 @@
 
 > Functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-![screenshot](./app/assets/images//app_screenshot.png)
+![screenshot](./app/assets/images//app_screenshot.gif)
+
+## Live Demo
+
+<https://blog-app-microverse.herokuapp.com/>
 
 ## Built with
 

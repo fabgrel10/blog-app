@@ -1,0 +1,12 @@
+<% if @post.errors.any? %>
+  <div class="w-1/2 mx-auto mt-5 mb-5 space-y-2">
+    <div class="px-4 py-4 font-extrabold text-yellow-800 bg-red-300 rounded shadow-lg shadow-red-500/50" role="alert">
+      The form contains <%= pluralize(@post.errors.count, "error") %>.
+    </div>
+    <ul  class="px-4 font-extrabold text-yellow-800 bg-red-300 rounded shadow-lg shadow-red-500/50" role="alert">
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

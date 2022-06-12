@@ -1,0 +1,15 @@
+   <% if flash.any?  %>
+  <div class="w-1/2 mx-auto mb-5 space-y-2">
+    <% flash.each do |type, msg| %>
+      <% if type == "success" %>
+        <div class="px-4 py-4 font-extrabold bg-green-300 rounded shadow-lg text-yellow-50 shadow-green-500/50" role="alert">
+          <%= msg %>
+        </div>
+      <% else %>
+        <div class="px-4 py-4 font-extrabold text-yellow-800 bg-red-300 rounded shadow-lg shadow-red-500/50" role="alert">
+          <%= msg %>
+        </div>
+      <% end %>
+    </div>
+  <% end -%>
+<% end %>

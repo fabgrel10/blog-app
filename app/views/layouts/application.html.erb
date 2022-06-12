@@ -10,7 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="bg-slate-100">
-    <main class="container mt-5 mx-auto max-w-xl">
+    <main class="container max-w-xl mx-auto mt-5">
+      <%= render partial: 'partials/flash_messages' %>
       <%= yield %>
     </main>
   </body>
