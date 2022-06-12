@@ -1,0 +1,11 @@
+<%= render partial: 'partials/post', locals: {post: @current_post}  %>
+<% if @current_post.comments_counter > 0 %>
+  <div class="p-5 mt-0 mb-3 bg-white border border-t-0 shadow-lg border-sky-500">
+    <% @current_post.comments.each do |comment| %>
+      <%= render partial: 'partials/comment', locals: { comment: comment }  %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="mb-3"></div>
+<% end %>
+<%= render partial: 'partials/comment_form', locals: { post_id: @current_post.id, user_id: @current_user.id } %>
