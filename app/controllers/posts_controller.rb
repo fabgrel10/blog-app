@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.decrement_posts_counter
     @post.delete
-    redirect_to user_path, notice: 'Post deleted!'
+    redirect_to user_path(@post.author_id), notice: 'Post deleted!'
   end
 
   private

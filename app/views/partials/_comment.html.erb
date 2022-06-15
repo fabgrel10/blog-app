@@ -1,4 +1,7 @@
 <p class="mt-2 text-gray-700">
   <span class="font-bold text-gray-700"><%= comment.author.name %></span>:
   <%= comment.text %>
+    <% if can? :destroy, comment %>
+    <%= button_to "Delete comment", user_post_comment_path(user_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete, data: {confirm: 'Are you sure? '} %>
+  <% end %>
 </p>
