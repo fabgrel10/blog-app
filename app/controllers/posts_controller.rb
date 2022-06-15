@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = current_user
     @user_posts = Post.includes(:comments, comments: [:author]).where(author_id: @user.id).order(id: :desc)
@@ -24,6 +26,13 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Post could not be created!'
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.decrement_posts_counter
+    @post.delete
+    redirect_to user_path(@post.author_id), notice: 'Post deleted!'
   end
 
   private

@@ -9,4 +9,7 @@
   <%= button_to 'Like',
       user_post_likes_path(post_id: post.id),
       class: 'mb-3 p-2 font-bold text-center text-gray-900 bg-white border rounded focus:outline-none border-sky-500 hover:bg-sky-500 hover:text-white' %>
+  <% if can? :destroy, post %>
+    <%= button_to "Delete post", user_post_path(user_id: post.author.id, id: post.id), method: :delete, data: {confirm: 'Are you sure? '} %>
+  <% end %>
 </div>
