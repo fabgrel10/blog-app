@@ -6,7 +6,7 @@ RSpec.describe 'User show', type: :feature do
     Post.destroy_all
   end
 
-  context 'with the correct params' do
+  describe 'with the correct params' do
     before :each do
       User.create(id: 3, name: 'Dummy User 3', email: 'dummy3@example.com', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                   password: '123456', posts_counter: 0, confirmed_at: Time.now)
