@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 gem 'bootsnap', require: false
+gem 'bullet'
 gem 'cancancan'
 gem 'devise'
 gem 'ffi', '~> 1.9'
@@ -18,7 +19,6 @@ gem 'turbo-rails'
 gem 'tzinfo-data'
 
 group :development, :test do
-  gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0.rc1'
