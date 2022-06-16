@@ -7,7 +7,7 @@ RSpec.describe 'Users', type: :system do
   end
 
   context 'when in the index page' do
-    before(:each) do
+    before :each do
       User.create(name: 'Dummy User 1', email: 'dummy1@example.com', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
                   password: '123456', posts_counter: 0, confirmed_at: Time.now)
       User.create(name: 'Dummy User 2', email: 'dummy2@example.com', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
