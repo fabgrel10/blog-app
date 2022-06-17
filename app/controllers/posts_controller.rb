@@ -2,12 +2,12 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @user = current_user
+    @user = User.find(params[:user_id])
     @user_posts = Post.includes(:comments, comments: [:author]).where(author_id: @user.id).order(id: :desc)
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:user_id])
     @current_post = Post.includes(:comments, comments: [:author]).where(author_id: @user.id).find(params[:id])
     @current_user = current_user
   end

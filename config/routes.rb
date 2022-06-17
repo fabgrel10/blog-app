@@ -7,6 +7,18 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      devise_for :users, as: 'api', controllers: { sessions: 'api/sessions', registrations: 'api/v1/registrations' }
+
+      resources :users, only: %i[index show] do
+        resources :posts, only: %i[index show] do
+          resources :comments, only: %i[index show create]
+        end
+      end
+    end
+  end
+
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :new, :create, :destroy] do
       resources :comments, only: [:create, :destroy]
