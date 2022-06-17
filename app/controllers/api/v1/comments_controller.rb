@@ -1,4 +1,6 @@
 class Api::V1::CommentsController < ApplicationController
+  skip_before_action :authenticate_user!
+  protect_from_forgery unless: -> { request.format.json? }
   def index
     user = User.find(params[:user_id])
     post = user.posts.find(params[:post_id])
@@ -17,18 +19,12 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:user_id])
-    post = user.posts.find(params[:post_id])
-    comment = post.comments.build(comment_params)
-    comment.author_id = current_user.id
+    user = User.where(token: params[:token])[0]
+    post = Post.find(params[:post_id])
+    comment = post.comments.new(text: params[:text])
+    comment.author_id = user.id
     render json: comment, status: :ok if comment.save
   rescue StandardError => e
-    render json: { error: e }, status: :error
-  end
-
-  private
-
-  def comment_params
-    params.require(:comment).permit(:text)
+    render json: { error: e }
   end
 end
