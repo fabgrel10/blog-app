@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      devise_for :users, as: 'api', controllers: { sessions: 'api/sessions', registrations: 'api/registrations' }
+      devise_for :users, as: 'api', controllers: { sessions: 'api/sessions', registrations: 'api/v1/registrations' }
 
       resources :users, only: %i[index show] do
         resources :posts, only: %i[index show] do
