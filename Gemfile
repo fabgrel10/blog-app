@@ -15,7 +15,7 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.3'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
-gem 'tailwindcss-rails', '~> 2.0'
+gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data'
 
